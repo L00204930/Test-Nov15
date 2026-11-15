@@ -10,6 +10,12 @@ jobs:
         run: |
           echo "Hello from job1"
           echo "Today is 15th of November"
+      - name: setup python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: checking version
+        run: python --version
 
   job2:
     name: job2
