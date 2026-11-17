@@ -1,0 +1,32 @@
+name: Challenge1
+
+on:
+  workflow_dispatch:
+
+jobs:
+    job1:
+        name: setup
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Print date
+            run: date
+          - name: Print working directory
+            run: pwd
+          - name: Print directory contents
+            run: ls -la
+    job2:
+      name: Python setup
+      runs-on: ubuntu-latest
+
+      steps:
+          - name: setup python
+            uses: actions/setup-python@v6
+            with: 
+                python-version: '3.13'
+          - name: set up pandas
+            run: pip install pandas
+          - name: create artefact
+            run: 
+              echo "# This is my python artifact" >artifact.py
+            cat artifact.py
